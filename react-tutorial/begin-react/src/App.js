@@ -1,25 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Hello from './Hello';  // Hello 컴포넌트 불러오기
 
 function App() {
+  // 컴포넌트는 두번세번 재사용이 가능함.
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          안녕하세요.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <div>
+    <Hello />
+    <Hello />
+   </div>
   );
 }
 
