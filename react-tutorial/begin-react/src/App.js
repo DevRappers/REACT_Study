@@ -1,6 +1,7 @@
 import React from 'react';
 import Hello from './Hello';  // Hello 컴포넌트 불러오기
 import './App.css';
+import Wrapper from './Wrapper';
 
  // 컴포넌트는 두번세번 재사용이 가능함. 
  // 얼핏보기에는 HTML처럼 생겼지만 사실은 JS임. babel이라는 도구를 사용해서 xml형태의 코드가 javascript로 변환이 되는 것
@@ -23,6 +24,9 @@ import './App.css';
 
     JSX에서 주석 적는 방법
     {}안에 주석을 넣어서 사용해야함
+
+    props에 대해서
+    props는 properties의 줄임말로 컴포넌트를 사용할때 자식에게 특정값을 전달하고 싶을 때 사용함.
 */
 function App() {
   const name = 'react';
@@ -36,12 +40,12 @@ function App() {
   return (
    <>
     {/* 주석 테스트 */}
-    <Hello 
-      // 이런식으로 작성하는 주석은 화면에 나타나지 않음.
-    />
-    <Hello />
-    <div style={style}>{name}</div>
-    <div className="gray-box"></div>
+    <Wrapper>
+      <Hello name="DevRappers" color="blue"/>
+      <Hello color="red"/>
+      <div style={style}>{name}</div>
+      <div className="gray-box"></div>
+    </Wrapper>
    </>
   );
 }
