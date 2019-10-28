@@ -41,7 +41,7 @@ function App() {
    <>
     {/* 주석 테스트 */}
     <Wrapper>
-      <Hello name="DevRappers" color="blue"/>
+      <Hello name="DevRappers" color="blue" isSpecial/>
       <Hello color="red"/>
       <div style={style}>{name}</div>
       <div className="gray-box"></div>
