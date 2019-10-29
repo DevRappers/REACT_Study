@@ -99,7 +99,13 @@ const [users, setUsers] = useState([
 
     // useRef로 한 값을 변경시켜주고 싶을때 
     nextId.current += 1;
+  };
+
+  const onRemove = id =>{
+    // filter를 이용해서 id가 삭제한 아이디가 아닌것만 출력 
+    setUsers(users.filter(user => user.id !== id));
   }
+
   return (
    <>
     {/* 주석 테스트 */}
@@ -116,7 +122,7 @@ const [users, setUsers] = useState([
     */
     }
     <CreateUser username={username} email={email} onChange={onChange} onCreate={onCreate}/>
-    <UserList users={users}/>
+    <UserList users={users} onRemove={onRemove}/>
    </>
   );
 }
