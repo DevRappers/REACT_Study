@@ -1,8 +1,9 @@
 import React from 'react';
-import InputSample from './InputSample';
+import UserList from './UserList';
 // import Hello from './Hello';  // Hello 컴포넌트 불러오기
 // import Wrapper from './Wrapper';
 // import Counter from './Counter';
+//import InputSample from './InputSample';
 // import './App.css';
 
  // 컴포넌트는 두번세번 재사용이 가능함. 
@@ -43,7 +44,7 @@ function App() {
    <>
     {/* 주석 테스트 */}
     {
-      /* 7강 이전 것들
+      /* 
     <Wrapper>
       <Hello name="DevRappers" color="blue" isSpecial/>
       <Hello color="red"/>
@@ -51,9 +52,10 @@ function App() {
       <div className="gray-box"></div>
     </Wrapper>
     <Counter/>
+    <InputSample/>
     */
     }
-    <InputSample/>
+    <UserList/>
    </>
   );
 }
