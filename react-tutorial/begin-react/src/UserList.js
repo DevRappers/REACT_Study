@@ -28,6 +28,7 @@ function User({ user, onRemove, onToggle}){
     useEffect(() => {
         console.log('user값이 설정됨 ')
         console.log(user);
+        // return은 업데이트 되기전 호출됨
         return () => {
             console.log('user 값이 바뀌기 전')
             console.log(user);

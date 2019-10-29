@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useMemo } from 'react';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
 // import Hello from './Hello';  // Hello 컴포넌트 불러오기
@@ -33,6 +33,12 @@ import CreateUser from './CreateUser';
     props에 대해서
     props는 properties의 줄임말로 컴포넌트를 사용할때 자식에게 특정값을 전달하고 싶을 때 사용함.
 */
+
+function countActiveUsers(users){
+  console.log('활성 사용자 수를 세는중...');
+  return users.filter(user => user.active).length;
+}
+
 function App() {
   // const name = 'react';
 
@@ -117,6 +123,9 @@ const [users, setUsers] = useState([
     ))
   }
 
+  // useMemo를 사용하지 않게 되면 리랜더링 될때마다 수를 센다. 
+  // users가 바뀔때에만 함수를 실행함.
+  const count = useMemo(()=> countActiveUsers(users), [users]);
   return (
    <>
     {/* 주석 테스트 */}
@@ -134,6 +143,7 @@ const [users, setUsers] = useState([
     }
     <CreateUser username={username} email={email} onChange={onChange} onCreate={onCreate}/>
     <UserList users={users} onRemove={onRemove} onToggle={onToggle}/>
+    <div>활성 사용자 수 : {count}</div>
    </>
   );
 }
