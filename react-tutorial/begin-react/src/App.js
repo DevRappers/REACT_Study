@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import UserList from './UserList';
 // import Hello from './Hello';  // Hello 컴포넌트 불러오기
 // import Wrapper from './Wrapper';
@@ -31,6 +31,33 @@ import UserList from './UserList';
     props에 대해서
     props는 properties의 줄임말로 컴포넌트를 사용할때 자식에게 특정값을 전달하고 싶을 때 사용함.
 */
+const users = [{
+            id: 1,
+            username: 'DevRappers',
+            email: 'DevRappers@gmail.com'
+        },
+        {
+            id: 2,
+            username: 'tester',
+            email: 'tester@example.com'
+        },
+        {
+            id: 3,
+            username: 'liz',
+            email: 'liz@example.com'
+        }
+    ];
+
+  // 마지막 +1 
+  // useRef는 특정DOM을 선택할때 사용해도 되지만 어떠한 값을 기억하고 싶을 경우에도 사용함.
+  //const nextId = useRef(4);
+
+  const onCreate = () => {
+    // nextId값을 가져오고 싶을경우 
+    //console.log(nextId.current);
+    // useRef로 한 값을 변경시켜주고 싶을때 
+    //nextId.current += 1;
+  }
 function App() {
   // const name = 'react';
 
@@ -55,7 +82,7 @@ function App() {
     <InputSample/>
     */
     }
-    <UserList/>
+    <UserList users={users}/>
    </>
   );
 }
