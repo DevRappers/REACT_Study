@@ -31,14 +31,14 @@ import InputSample from './InputSample';
     props는 properties의 줄임말로 컴포넌트를 사용할때 자식에게 특정값을 전달하고 싶을 때 사용함.
 */
 function App() {
-  const name = 'react';
+  // const name = 'react';
 
-  const style={
-    backgroundColor: 'black',
-    color: 'aqua',
-    fontSize: 24,
-    padding: '1rem'
-  }
+  // const style={
+  //   backgroundColor: 'black',
+  //   color: 'aqua',
+  //   fontSize: 24,
+  //   padding: '1rem'
+  // }
   return (
    <>
     {/* 주석 테스트 */}

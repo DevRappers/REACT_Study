@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState, useRef } from 'react';
 
 function InputSample(){
     // 객체형태로 useState를 이용함
@@ -6,6 +6,9 @@ function InputSample(){
         name: '',
         nickname: ''
     });
+    
+    // DOM에 직접 접근할때는 useRef를 사용함.
+    const nameInput = useRef();
 
     // 비구조화 할당
     const {name, nickname} = inputs;
@@ -32,6 +35,9 @@ function InputSample(){
             name: '',
             nickname: ''
         });
+        // current가 DOM을 가르키게 됨 
+        // focus를 이렇게 사용하는 이유는 React에서는 이런것을 쉽게 이용할 수 없음.
+        nameInput.current.focus();
     }
     return(
         <div>
@@ -43,7 +49,7 @@ function InputSample(){
             <b>값: </b>
             {text}   */
         } 
-        <input name="name" placeholder="이름" onChange={onChange} value={name}/>
+        <input name="name" placeholder="이름" onChange={onChange} value={name} ref={nameInput} />
         <input name="nickname" placeholder="닉네임" onChange={onChange} value={nickname}/>
         <button onClick={onReset}>초기화</button>
         <div>
