@@ -1,8 +1,9 @@
 import React from 'react';
-import Hello from './Hello';  // Hello 컴포넌트 불러오기
-import './App.css';
-import Wrapper from './Wrapper';
-import Counter from './Counter';
+import InputSample from './InputSample';
+// import Hello from './Hello';  // Hello 컴포넌트 불러오기
+// import Wrapper from './Wrapper';
+// import Counter from './Counter';
+// import './App.css';
 
  // 컴포넌트는 두번세번 재사용이 가능함. 
  // 얼핏보기에는 HTML처럼 생겼지만 사실은 JS임. babel이라는 도구를 사용해서 xml형태의 코드가 javascript로 변환이 되는 것
@@ -49,9 +50,10 @@ function App() {
       <div style={style}>{name}</div>
       <div className="gray-box"></div>
     </Wrapper>
+    <Counter/>
     */
     }
-    <Counter/>
+    <InputSample/>
    </>
   );
 }
