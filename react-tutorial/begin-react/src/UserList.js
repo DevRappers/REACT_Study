@@ -1,16 +1,23 @@
 import React from 'react';
 
-function User({ user, onRemove }){
-    const {username, email, id} = user;
+function User({ user, onRemove, onToggle}){
+    const {username, email, id, active} = user;
     return(
         <div>
-            <b>{username}</b> <span>({email})</span>
+            <b style={{
+                color: active ? 'green' : 'black',
+                cursor: 'pointer'
+            }}
+            onClick={() => onToggle(id)}
+            >{username}</b> 
+            &nbsp;
+            <span>({email})</span>
             <button onClick={() => onRemove(id)}>❌</button>
         </div>
     );
 }
 
-function UserList({users, onRemove}) {  
+function UserList({users, onRemove, onToggle}) {  
     return (
         <div>
           {/*
@@ -32,7 +39,7 @@ function UserList({users, onRemove}) {
               // 만약 고유값이 없으면 index를 사용해도됨 key={index}
               // key가 없으면 생성하거나 수정하거나 삭제하거나 할때 불편함 어떤 것을 삭제 추가해야할지 어디에 추가해야할지 찾지못함
               users.map(
-                  user => (<User user={user} key={user.id} onRemove={onRemove}/>)
+                  user => (<User user={user} key={user.id} onRemove={onRemove} onToggle={onToggle}/>)
               )
           }
         </div>

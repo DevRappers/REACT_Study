@@ -60,17 +60,20 @@ const [users, setUsers] = useState([
         {
             id: 1,
             username: 'DevRappers',
-            email: 'DevRappers@gmail.com'
+            email: 'DevRappers@gmail.com',
+            active: true
         },
         {
             id: 2,
             username: 'tester',
-            email: 'tester@example.com'
+            email: 'tester@example.com',
+            active: false
         },
         {
             id: 3,
             username: 'liz',
-            email: 'liz@example.com'
+            email: 'liz@example.com',
+            active: false
         }
     ]);
 
@@ -106,6 +109,14 @@ const [users, setUsers] = useState([
     setUsers(users.filter(user => user.id !== id));
   }
 
+  const onToggle = id => {
+    setUsers(users.map(
+      user => user.id === id
+      ? {...user, active: !user.active} 
+      : user
+    ))
+  }
+
   return (
    <>
     {/* 주석 테스트 */}
@@ -122,7 +133,7 @@ const [users, setUsers] = useState([
     */
     }
     <CreateUser username={username} email={email} onChange={onChange} onCreate={onCreate}/>
-    <UserList users={users} onRemove={onRemove}/>
+    <UserList users={users} onRemove={onRemove} onToggle={onToggle}/>
    </>
   );
 }
