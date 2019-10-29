@@ -45,6 +45,7 @@ function UserList() {
           {
               // map을 사용해주면 더 간단해짐 하지만 key가 있어야함. 고유값
               // 만약 고유값이 없으면 index를 사용해도됨 key={index}
+              // key가 없으면 생성하거나 수정하거나 삭제하거나 할때 불편함 어떤 것을 삭제 추가해야할지 어디에 추가해야할지 찾지못함
               users.map(
                   user => (<User user={user} key={user.id}/>)
               )
