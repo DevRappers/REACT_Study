@@ -1,4 +1,4 @@
-import React, { useRef, useState, useMemo } from 'react';
+import React, { useRef, useState, useMemo, useCallback} from 'react';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
 // import Hello from './Hello';  // Hello 컴포넌트 불러오기
@@ -55,13 +55,15 @@ function App() {
 
 const {username, email} = inputs;
 
-const onChange = (e) =>{
+// useCallback을 사용하면 inputs가 바뀌면 함수를 변경하고 그렇지 않으면 그대로 재사용함.
+const onChange = useCallback((e) =>{
   const {name,value} = e.target;
   setInputs({
     ...inputs,
     [name] : value
   });
-}
+},[inputs]);
+
 const [users, setUsers] = useState([
         {
             id: 1,
@@ -87,7 +89,7 @@ const [users, setUsers] = useState([
   // useRef는 특정DOM을 선택할때 사용해도 되지만 어떠한 값을 기억하고 싶을 경우에도 사용함.
   const nextId = useRef(4);
 
-  const onCreate = () => {
+  const onCreate = useCallback(() => {
     const user = {
       id: nextId.current,
       username,
@@ -108,20 +110,20 @@ const [users, setUsers] = useState([
 
     // useRef로 한 값을 변경시켜주고 싶을때 
     nextId.current += 1;
-  };
+  },[username,email,users]);
 
-  const onRemove = id =>{
+  const onRemove = useCallback(id =>{
     // filter를 이용해서 id가 삭제한 아이디가 아닌것만 출력 
     setUsers(users.filter(user => user.id !== id));
-  }
+  },[users]);
 
-  const onToggle = id => {
+  const onToggle = useCallback(id => {
     setUsers(users.map(
       user => user.id === id
       ? {...user, active: !user.active} 
       : user
     ))
-  }
+  },[users]);
 
   // useMemo를 사용하지 않게 되면 리랜더링 될때마다 수를 센다. 
   // users가 바뀔때에만 함수를 실행함.
