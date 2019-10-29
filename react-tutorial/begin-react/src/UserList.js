@@ -9,7 +9,7 @@ useEffect Hook
 마운트될때 그냥 함수 / 삭제될때 return 
 */
 
-function User({ user, onRemove, onToggle}){
+const User = React.memo(function User({ user, onRemove, onToggle}){
     const {username, email, id, active} = user;
     // useEffect(() =>{
     //     console.log('컴포넌트가 화면에 나타남');
@@ -47,7 +47,7 @@ function User({ user, onRemove, onToggle}){
             <button onClick={() => onRemove(id)}>❌</button>
         </div>
     );
-}
+});
 
 function UserList({users, onRemove, onToggle}) {  
     return (
@@ -78,4 +78,6 @@ function UserList({users, onRemove, onToggle}) {
     )
 }
 
-export default UserList;
+// React.memo를 사용할때에는 뒤에 옵션을 정해줄 수 있음
+// 예전의 users랑 현재 users가 같을때는 리랜더링하지않음.
+export default React.memo(UserList, (prevProps, nextProps) => nextProps.users === prevProps.users);

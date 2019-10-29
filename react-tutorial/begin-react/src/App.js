@@ -99,7 +99,7 @@ const [users, setUsers] = useState([
     // 배열을 복사해주고 뒤에 새로운 항목을 추가해줌
     // push를 쓰면 업데이트가 되지 않음.
     //setUsers([...users, user]);
-    setUsers(users.concat(user));
+    setUsers(users => users.concat(user));
 
     setInputs({
       username: '',
@@ -110,20 +110,20 @@ const [users, setUsers] = useState([
 
     // useRef로 한 값을 변경시켜주고 싶을때 
     nextId.current += 1;
-  },[username,email,users]);
+  },[username,email]);
 
   const onRemove = useCallback(id =>{
     // filter를 이용해서 id가 삭제한 아이디가 아닌것만 출력 
-    setUsers(users.filter(user => user.id !== id));
-  },[users]);
+    setUsers(users => users.filter(user => user.id !== id));
+  },[]);
 
   const onToggle = useCallback(id => {
-    setUsers(users.map(
+    setUsers(users => users.map(
       user => user.id === id
       ? {...user, active: !user.active} 
       : user
     ))
-  },[users]);
+  },[]);
 
   // useMemo를 사용하지 않게 되면 리랜더링 될때마다 수를 센다. 
   // users가 바뀔때에만 함수를 실행함.
