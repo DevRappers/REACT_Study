@@ -1,4 +1,5 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useContext} from 'react';
+import { UserDisPatch } from './App';
 
 /*
 useEffect Hook
@@ -9,8 +10,9 @@ useEffect Hook
 마운트될때 그냥 함수 / 삭제될때 return 
 */
 
-const User = React.memo(function User({ user, onRemove, onToggle}){
+const User = React.memo(function User({ user}){
     const {username, email, id, active} = user;
+    const dispatch = useContext(UserDisPatch);
     // useEffect(() =>{
     //     console.log('컴포넌트가 화면에 나타남');
     //     // props -> state 
@@ -40,16 +42,19 @@ const User = React.memo(function User({ user, onRemove, onToggle}){
                 color: active ? 'green' : 'black',
                 cursor: 'pointer'
             }}
-            onClick={() => onToggle(id)}
+            onClick={() => dispatch({type: 'TOGGLE_USER', id})}
             >{username}</b> 
             &nbsp;
             <span>({email})</span>
-            <button onClick={() => onRemove(id)}>❌</button>
+            <button onClick={() => dispatch({
+                type:'REMOVE_USER',
+                id
+            })}>❌</button>
         </div>
     );
 });
 
-function UserList({users, onRemove, onToggle}) {  
+function UserList({users}) {  
     return (
         <div>
           {/*
@@ -71,7 +76,7 @@ function UserList({users, onRemove, onToggle}) {
               // 만약 고유값이 없으면 index를 사용해도됨 key={index}
               // key가 없으면 생성하거나 수정하거나 삭제하거나 할때 불편함 어떤 것을 삭제 추가해야할지 어디에 추가해야할지 찾지못함
               users.map(
-                  user => (<User user={user} key={user.id} onRemove={onRemove} onToggle={onToggle}/>)
+                  user => (<User user={user} key={user.id}/>)
               )
           }
         </div>

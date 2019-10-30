@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import ContextSample from './ContextSample';
 
 // 페이지에서 아이디가 root인 것을 찾아서 react앱을 거기에 넣겠다.
 ReactDOM.render( < App / > , document.getElementById('root'));
