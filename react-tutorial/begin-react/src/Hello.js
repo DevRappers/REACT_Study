@@ -1,4 +1,4 @@
-import React from 'react'; // react를 불러와서 사용하겠다.
+import React, {Component} from 'react'; // react를 불러와서 사용하겠다.
 
 // 컴포넌트를 만드는 방법 
 // 1. 함수형태로 만드는 방법
@@ -11,24 +11,41 @@ import React from 'react'; // react를 불러와서 사용하겠다.
  값이 true냐 false냐에 따라 다른 결과를 보여주는 것
  JAX에서는 false, null, undefined를 렌더링하면 아무것도 나오지 않음. 0은 나오게됨.
 */
-function Hello({name, color, isSpecial}) {
-    return (
-        <div style={{color}}>
-        {
-            //isSpecial && <b>*</b>
-        }
-            <b>{isSpecial? '스페셜하다! ' : '낫스페셜 '}</b>
+// function Hello({name, color, isSpecial}) {
+//     return (
+//         <div style={{color}}>
+//         {
+//             //isSpecial && <b>*</b>
+//         }
+//             <b>{isSpecial? '스페셜하다! ' : '낫스페셜 '}</b>
         
-            안녕하세요. {name}
-        </div>
-    );
+//             안녕하세요. {name}
+//         </div>
+//     );
+// }
+
+// 클래스형 컴포넌트
+class Hello extends Component { 
+    // class형 컴포넌트에서 기본값 props
+    static defaultProps = {
+        name: '이름없음',
+    };
+    render(){
+        const {isSpecial,color,name} = this.props
+        return (
+            <div style={{color}}>
+            {isSpecial && <b>*</b>}
+            안녕하세요 {name}
+            </div>
+        )
+    }
 }
 
 // props값이 넘어오지 않았을경우 기본값을 선택해줌.
 // defaultProps를 사용함.
-Hello.defaultProps = {
-    name: '이름없음'
-}
+// Hello.defaultProps = {
+//     name: '이름없음'
+// }
 
 // 이 코드는 Hello라는 컴포넌트를 만들어서 내보내주겠다. 라는 뜻
 export default Hello;
