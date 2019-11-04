@@ -8,7 +8,7 @@ function About({ location }) {
 		ignoreQueryPrefix: true
 	});
 
-	// true도 문자열로 저장되기 때문에 문자열로 비교해줘야함
+	// true도 문자열로 저장되기 때문에 문자열로 비교해줘야함 숫자도 문자열로 저장됨
 	const detail = query.detail === 'true';
 
 	return (
