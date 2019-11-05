@@ -24,7 +24,7 @@ function App() {
 			</ul>
 			<hr />
 			{
-				//
+				// 스위치는 아무것도 찾지 못할때 notfound같은 페이지를 보여줄때 사용함 왜냐면 스위치는 맨위부터 찾기때문에
 			}
 			<Switch>
 				<Route path="/" component={Home} exact />
