@@ -5,7 +5,7 @@
 매일 학습한 내용을 기록함
 
 
-## 블로그정리
+# React 기초
 1. [환경설정](https://devrappers.tistory.com/48)
 2. [컴포넌트 만들기](https://devrappers.tistory.com/49)
 3. [JSX](https://devrappers.tistory.com/50)
@@ -24,3 +24,12 @@
 16. [useReducer](https://devrappers.tistory.com/63)
 17. [커스텀Hooks](https://devrappers.tistory.com/64)
 18. [ContextAPI](https://devrappers.tistory.com/65)
+19. [Immer](https://devrappers.tistory.com/66)
+20. [클래스형 컴포넌트](https://devrappers.tistory.com/67)
+21. [ComponentDidCatch](https://devrappers.tistory.com/68)
+
+# React Router
+1. [리액트 라우터란](https://devrappers.tistory.com/69)
+2. [파라미터와 쿼리](https://devrappers.tistory.com/70)
+3. [서브라우트](https://devrappers.tistory.com/71)
+4. [리액트 라우터의 부가기능](https://devrappers.tistory.com/72)
