@@ -38,3 +38,9 @@
 1. [Sass](https://devrappers.tistory.com/73)
 2. [CSS Module](https://devrappers.tistory.com/74)
 3. [styled-components](https://devrappers.tistory.com/75)
+
+## React API
+1. [API연동](https://devrappers.tistory.com/76)
+2. [useReducer로 요청 상태 관리하기](https://devrappers.tistory.com/77)
+3. [useAsync커스텀 Hook 만들기](https://devrappers.tistory.com/78)
+4. [react-async로 요청 상태 관리하기](https://devrappers.tistory.com/79)
